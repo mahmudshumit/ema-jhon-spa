@@ -4,10 +4,10 @@ import Product from '../Product/Product';
 import fakeData from '../../fakeData';
 
 const ProductDetail = () => {
-    const {productkey} = useParams()
+    const {productKey} = useParams()
 
-    const product =fakeData.find(product => product.key===productkey);
-    console.log(product);
+    const product =fakeData.find(product => product.key===productKey);
+    
     return (
         <div>
             <h1>Your Product Details Here</h1>

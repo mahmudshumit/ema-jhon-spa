@@ -23,28 +23,28 @@ function App() {
       <Router>
         <Switch>
           <Route path="/shop">
-          <Shop></Shop>
+            <Shop></Shop>
           </Route>
           <Route path="/review">
-              <Review></Review>
+            <Review></Review>
           </Route>
           <Route path="/inventory">
-           <Inventory></Inventory>
+            <Inventory></Inventory>
           </Route>
           <Route exact path="/">
-          <Shop></Shop>
+            <Shop></Shop>
           </Route>
-          <Route path="/product/:productkey">
+          <Route path="/product/:productKey">
             <ProductDetail></ProductDetail>
           </Route>
           <Route path="*">
-          <NotFound></NotFound>
+            <NotFound></NotFound>
           </Route>
         </Switch>
       </Router>
 
-   
-  
+
+
     </div>
   );
 }
