@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { createContext, useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Shop from './components/Shop/Shop';
@@ -13,12 +13,19 @@ import Review from './components/Review/Review';
 import Inventory from './components/Inventory/Inventory';
 import NotFound from './components/NotFound/NotFound';
 import ProductDetail from './components/ProductDetail/ProductDetail';
+import LogIn from './components/LogIn/LogIn';
+import Shipment from './components/Shipment/Shipment';
 
+export const UserContext = createContext();
 
 
 function App() {
+  const [loggedInUser,setLoggedInUser] =useState({});
+
+
   return (
-    <div>
+    <UserContext.Provider value={[loggedInUser,setLoggedInUser]}>
+      <p> Email : {loggedInUser.email}</p>
       <Header></Header>
       <Router>
         <Switch>
@@ -31,6 +38,12 @@ function App() {
           <Route path="/inventory">
             <Inventory></Inventory>
           </Route>
+          <Route path="/login">
+            <LogIn></LogIn>
+          </Route>
+          <Route path="/shipment">
+            <Shipment></Shipment>
+          </Route>
           <Route exact path="/">
             <Shop></Shop>
           </Route>
@@ -42,10 +55,7 @@ function App() {
           </Route>
         </Switch>
       </Router>
-
-
-
-    </div>
+    </UserContext.Provider>
   );
 }
 
