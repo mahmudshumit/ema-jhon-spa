@@ -1,12 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Product from '../Product/Product';
-import fakeData from '../../fakeData';
+
 
 const ProductDetail = () => {
-    const {productKey} = useParams()
+    const {productKey} = useParams();
+    const [product,setProduct] = useState({});
 
-    const product =fakeData.find(product => product.key===productKey);
+    useEffect(() => {
+
+      fetch('https://thawing-castle-41115.herokuapp.com/products/'+productKey)
+      .then(res=>res.json())
+      .then(data =>setProduct(data))
+
+    },[productKey])
+
+    // const product =fakeData.find(product => product.key===productKey);
     
     return (
         <div>
